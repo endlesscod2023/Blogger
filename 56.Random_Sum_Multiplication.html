@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Sum Multiplication</title>
+<style type="text/css">
+fieldset{width: fit-content; margin: auto; padding: auto;}
+button{margin: 1px; cursor: pointer;}
+</style>
+</head>
+<body>
+<fieldset style="border-radius: 3vh;">
+<legend>Multiplication Auto</legend>
+<form id="form">
+<label id="question">1*1</label>
+<br>
+<input type="text" id="input" placeholder="Enter Number Only" style="width:20vh">
+<br><br>
+<button type="submit">Submit</button>
+</form> 
+</fieldset>
+<script type="text/javascript">
+const r1 = Math.ceil(Math.random() * 10);
+const r2 = Math.ceil(Math.random() * 10);
+const formEl = document.getElementById("form");
+const questionEl = document.getElementById("question");
+const inputEl = document.getElementById("input");
+questionEl.innerText = `${r1}*${r2}=?`;
+const correctAns = r1 * r2;
+formEl.addEventListener("submit", () => {
+const userAns = +inputEl.value;
+if (userAns === correctAns){
+}else{
+alert(`${r1}*${r2}=${correctAns}`);
+}});
+</script>
+</body>
+</html>
