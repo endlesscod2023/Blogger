@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oracle SQL</title>
+<style type="text/css">
+button{cursor: pointer; margin: 1px}
+textarea{overflow: scroll; width: 90vh}
+#sky{background-color: skyblue;}
+#pink{background-color: pink;}
+</style>
+</head>
+<body>
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/53-Oracle-SQL/blob/main/53%20Oracle%20SQL.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
+<legend>Oracle Connect</legend>
+<h3 id="sky">CONNECT</h3>
+<pre>
+SQL&gt; <button onclick="copy(this)">connect</button>
+Enter user-name: <button onclick="copy(this)">system</button>
+
+Enter password: <button onclick="copy(this)">tiger</button>
+Connected.
+</pre>
+</fieldset>
+
+<fieldset id="ddl">
+<legend>DDL</legend>
+<h3 id="sky">DATA DEFINATION LANGUAGE (DDL)</h3>
+<details>
+<summary id="sky">I] CREATE</summary>
+<pre>
+<u>SYNTAX</u>
+CREATE TABLE TABLE_NAME
+(
+COLUMN_NAME1 DATATYPE CONSTRAINT TYPE,
+...
+COLUMN_NAMEn DATATYPE CONSTRAINT);
+<button onclick="copyvalue('sql1')">copy</button>
+<textarea id="sql1" rows="7">
+CREATE TABLE CUSTOMER
+(
+CID NUMBER(5) PRIMARY KEY,
+CNAME VARCHAR(12),
+PNUMBER NUMBER(10), CHECK (LENGTH(PNUMBER)=10),
+GENTER VARCHAR(10));
+</textarea>
+SQL> CREATE TABLE CUSTOMER
+ 2  (
+ 3  CID NUMBER(5) PRIMARY KEY,
+ 4  CNAME VARCHAR(12),
+ 5  PNUMBER NUMBER(10), CHECK (LENGTH(PNUMBER)=10),
+ 6  GENTER VARCHAR(10));
+Table created.
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="pink">DESCRIBING TABLE</summary>
+<pre>
+<button onclick="copy(this)">DESC CUSTOMER;</button>
+SQL> desc customer;
+ Name      Null?    Type
+ --------- -------- -------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ GENTER             VARCHAR2(10)
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">II] RENAME</summary>
+<pre>
+<u>SYNTAX</u>
+RENAME TABLE_NAME TO NEW_NAME;
+<button onclick="copy(this)">RENAME CUSTOMER TO CUSTOM;</button>
+SQL> RENAME CUSTOMER TO CUSTOM;
+Table renamed.
+
+SQL> desc custom;
+ Name      Null?    Type
+ --------- -------- --------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ GENTER             VARCHAR2(10)	
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">III] ALTER</summary>
+<pre>
+<u>SYNTAX</u>
+ALTER TABLE TABLE_NAME
+ADD COLUMN_NAME DATATYPE CONSTRAINT TYPE;
+<button onclick="copyvalue('sql2')">copy</button>
+<textarea id="sql2" rows="3">
+ALTER TABLE CUSTOM
+ADD CITY VARCHAR(20)NOT NULL;
+</textarea>
+
+SQL> ALTER TABLE CUSTOM
+  2  ADD CITY VARCHAR(20)NOT NULL;
+Table altered.
+
+SQL> DESC CUSTOM;
+ Name      Null?    Type
+ --------- -------- ------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ GENTER             VARCHAR2(10)
+ CITY      NOT NULL VARCHAR2(20)
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">TO DROP A COLUMN</summary>
+<pre>
+<u>SYNTAX</u>
+ALTER TABLE TABLE_NAME 
+DROP COLUMN_NAME;
+<button onclick="copyvalue('sql3')">copy</button>
+<textarea id="sql3" rows="3">
+ALTER TABLE CUSTOM
+DROP COLUMN GENTER;
+</textarea>
+SQL> ALTER TABLE CUSTOM
+  2  DROP COLUMN GENTER;
+Table altered.
+
+SQL> DESC CUSTOM;
+ Name      Null?    Type
+ --------- -------- ------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ CITY      NOT NULL VARCHAR2(20)
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">TO RENAME THE COLUMN</summary>
+<pre>
+<u>SYNTAX</u>
+ALTER TABLE TABLE_NAME
+RENAME COLUMN COLUMN_NAME TO NEW_COLUMN_NAME;
+<button onclick="copyvalue('sql4')">copy</button>
+<textarea id="sql4" rows="3">
+ALTER TABLE CUSTOM
+RENAME COLUMN CITY TO CITYS;
+</textarea>
+SQL> ALTER TABLE CUSTOM
+  2  RENAME COLUMN CITY TO CITYS;
+Table altered.
+
+SQL> DESC CUSTOM;
+ Name      Null?    Type
+ --------- -------- -------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ CITYS     NOT NULL VARCHAR2(20)
+<button onclick="copyvalue('sql5')">copy</button>
+<textarea id="sql5" rows="3">
+ALTER TABLE CUSTOM
+RENAME COLUMN CITYS TO CITY;
+</textarea>
+SQL> ALTER TABLE CUSTOM
+  2  RENAME COLUMN CITYS TO CITY;
+Table altered.
+
+SQL> DESC CUSTOM;
+ Name      Null?    Type
+ --------- -------- -------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ CITY      NOT NULL VARCHAR2(20)
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">TO MODIFY THE DATATYPE</summary>
+<pre>
+<u>SYNTAX</u>
+ALTER TABLE TABLE_NAME
+MODIFY COLUMN_NAME NEW_DATATYPE;
+<button onclick="copyvalue('sql6')">copy</button>
+<textarea id="sql6" rows="3">
+ALTER TABLE CUSTOM 
+MODIFY CITY VARCHAR(10);
+</textarea>
+SQL> ALTER TABLE CUSTOM
+  2  MODIFY CITY VARCHAR(10);
+Table altered.
+
+SQL> DESC CUSTOM;
+ Name      Null?    Type
+ --------- -------- -------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ CITY      NOT NULL VARCHAR2(10)
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">VI] TRUNCATE</summary>
+<pre>
+<u>SYNTAX</u>
+TRUNCATE TABLE TABLE_NAME;	
+<button onclick="copyvalue('sql7')">copy</button>
+<textarea id="sql7" rows="6">
+CREATE TABLE PRODUCT(
+CID NUMBER(10),
+CNAME VARCHAR(12),
+PNUMBER NUMBER (10),
+GENDER VARCHAR(20));
+</textarea>
+SQL> CREATE TABLE PRODUCT(
+  2  CID NUMBER(10),
+  3  CNAME VARCHAR(12),
+  4  PNUMBER NUMBER (10),
+  5  GENDER VARCHAR(20));
+Table created.
+
+SQL> DESC PRODUCT;
+ Name      Null?    Type
+ --------- -------- -------------
+ CID                NUMBER(10)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ GENDER             VARCHAR2(20)
+
+<button onclick="copy(this)">TRUNCATE TABLE PRODUCT;</button>
+SQL> TRUNCATE TABLE PRODUCT;
+Table truncated.
+
+<button onclick="copyvalue('sql8')">copy</button>
+<textarea id="sql8" rows="3">
+SELECT *
+FROM TAB;
+</textarea>
+SQL> SELECT *
+  2  FROM TAB;
+  ...
+TNAME                    TABTYPE  CLUSTERID
+------------------------ ------- ----------
+HELP                     TABLE
+CUSTOM                   TABLE
+CUSTOMER                 TABLE
+PRODUCT                  TABLE
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">V] DROP</summary>
+
+<pre>
+<u>SYNTAX</u>
+TRUNCATE TABLE TABLE_NAME;	
+<button onclick="copyvalue('sql9')">copy</button>
+<textarea id="sql9" rows="6">
+CREATE TABLE PRODUCT1(
+CID NUMBER(10),
+CNAME VARCHAR(12),
+PNUMBER NUMBER (10),
+GENDER VARCHAR(20));
+</textarea>
+SQL> CREATE TABLE PRODUCT1(
+  2  CID NUMBER(10),
+  3  CNAME VARCHAR(12),
+  4  PNUMBER NUMBER (10),
+  5  GENDER VARCHAR(20));
+Table created.
+
+SQL> DESC PRODUCT1;
+ Name      Null?    Type
+ --------- -------- -------------
+ CID                NUMBER(10)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ GENDER             VARCHAR2(20)
+
+<button onclick="copy(this)">DROP TABLE PRODUCT1;</button>
+SQL> DROP TABLE PRODUCT1;
+Table dropped.
+
+<button onclick="copyvalue('sql10')">copy</button>
+<textarea id="sql10" rows="3">
+SELECT *
+FROM TAB;
+</textarea>
+SQL> SELECT *
+  2  FROM TAB;
+  ...
+TNAME                    TABTYPE  CLUSTERID
+------------------------ ------- ----------
+SQLPLUS_PRODUCT_PROFILE  TABLE
+PRODUCT_PRIVS            VIEW
+PRODUCT_USER_PROFILE     SYNONYM
+HELP                     TABLE
+CUSTOM                   TABLE
+CUSTOMER                 TABLE
+</pre>
+</details>
+</fieldset>
+
+
+<fieldset>
+<legend>DML</legend>
+<h3 id="sky">DATA MANUPULATION LANGUAGE (DML)</h3>
+<details>
+<summary id="sky">I] INSRT</summary>
+<pre>
+<u>SYNTAX</u>
+INSERT INTO TABLE_NAME
+VALUES( V1, V2, V3, .... Vn)
+
+SQL> DESC CUSTOMER;
+ Name      Null?    Type
+ --------- -------- -------------
+ CID       NOT NULL NUMBER(5)
+ CNAME              VARCHAR2(12)
+ PNUMBER            NUMBER(10)
+ CITY      NOT NULL VARCHAR2(20)
+
+<button onclick="copyvalue('sql11')">copy</button>
+<textarea id="sql11" rows="3">
+INSERT INTO CUSTOMER
+VALUES (1,'SRI',8925448346,'ERODE');
+</textarea>
+SQL> INSERT INTO CUSTOMER
+  2  VALUES (1,'SRI',8925448346,'ERODE');
+1 row created.
+
+<button onclick="copyvalue('sql12')">copy</button>
+<textarea id="sql12" rows="3">
+INSERT INTO CUSTOMER 
+VALUES (&CID, &CNAME, &PNUMBER, &CITY);
+</textarea>
+SQL> INSERT INTO CUSTOMER
+  2  VALUES (&CID, &CNAME, &PNUMBER, &CITY);
+Enter value for cid: 2
+Enter value for cname: 'SRI'
+Enter value for pnumber: 8925448346
+Enter value for city: 'ERODE'
+old   2: VALUES (&CID, &CNAME, &PNUMBER, &CITY)
+new   2: VALUES (2, 'SRI', 8925448346, 'ERODE')
+1 row created.
+
+<button onclick="copyvalue('sql13')">copy</button>
+<textarea id="sql13" rows="3">
+SELECT *
+FROM CUSTOMER;
+</textarea>
+SQL> SELECT *
+  2  FROM CUSTOMER;
+     CID CNAME     PNUMBER CITY
+-------- ------ ---------- ------
+       1 SRI    8925448346 ERODE
+       2 SRI    8925448346 ERODE
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">II] UPDATE</summary>
+<pre>
+<u>SYNTAX</u>
+UPDATE YTABLE_NAME
+SET COLUMN_NAME= NEW_VALUE, COLUMN_NAME=NEW_VALUE,...
+WHERE STM;
+<button onclick="copyvalue('sql14')">copy</button>
+<textarea id="sql14" rows="4">
+UPDATE CUSTOMER
+SET CITY='CHANNAI'
+WHERE CID=2;
+</textarea>
+SQL> UPDATE CUSTOMER
+  2  SET CITY='CHANNAI'
+  3  WHERE CID=2;
+1 row updated. 
+
+<button onclick="copyvalue('sql15')">copy</button>
+<textarea id="sql15" rows="3">
+SELECT *
+FROM CUSTOMER;
+</textarea>
+SQL> SELECT *
+  2  FROM CUSTOMER;
+     CID CNAME     PNUMBER CITY
+-------- ------ ---------- --------
+       1 SRI    8925448346 ERODE
+       2 SRI    8925448346 CHANNAI
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">III] DELETE</summary>
+<pre>
+<u>SYNTAX</u>
+DELETE FROM TABLE_NAME
+WHERE STATEMENT; 
+<button onclick="copyvalue('sql16')">copy</button>
+<textarea id="sql16" rows="3">
+DELETE FROM CUSTOMER
+WHERE CID=2;
+</textarea>
+SQL> DELETE FROM CUSTOMER
+  2  WHERE CID=2;
+1 row deleted.
+
+<button onclick="copyvalue('sql17')">copy</button>
+<textarea id="sql17" rows="3">
+SELECT *
+FROM CUSTOMER;
+</textarea>
+SQL> SELECT *
+  2  FROM CUSTOMER;
+     CID CNAME     PNUMBER CITY
+-------- ------ ---------- ------
+       1 SRI    8925448346 ERODE
+</pre>
+</details>
+</fieldset>
+
+
+<fieldset>
+<legend>TCL</legend>
+<h3 id="sky">TRANSITION CONTROL LANGUAGE (TCL)</h3>
+<details>
+<summary id="sky">I] COMMIT</summary>
+<pre>
+  This Statement is used to save the transition into database.
+<u>SYNTAX</u>
+COMMIT;
+<button onclick="copyvalue('sql')">COMMIT;</button>
+SQL> COMMIT;
+Commit complete. 
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">II] SAVEPOINT</summary>
+<span id="sky"></span><pre>
+  This statement is used to mark the position of the transition.
+<u>SYNTAX</u>
+SAVEPOINT SAVEPOINT_NAME;
+<button onclick="copy(this)">COMMIT;</button>
+SQL> COMMIT;
+Commit complete.
+
+<button onclick="copy(this)">SAVEPOINT S1;</button>
+SQL> SAVEPOINT S1;
+Savepoint created.
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">III] ROLLBACK</summary>
+<pre>
+  This statement is used to obtain only the saved from the database
+   It will bring you the point where you commit from the last time
+<u>SYNTAX</u>
+ROLLBACK SAVEDPOINT_NAME
+<button onclick="copy(this)">COMMIT;</button>
+SQL> COMMIT;
+Commit complete.
+
+<button onclick="copyvalue('sql18')">copy</button>
+<textarea id="sql18" rows="3">
+INSERT INTO CUSTOMER
+VALUES (2,'MANI',8925448346,'ERODE');
+</textarea>
+SQL> INSERT INTO CUSTOMER
+  2  VALUES (2,'MANI',8925448346,'ERODE');
+1 row created.
+
+<button onclick="copyvalue('sql19')">copy</button>
+<textarea id="sql19" rows="3">
+SELECT *
+FROM CUSTOMER;
+</textarea>
+SQL> SELECT *
+  2  FROM CUSTOMER;
+ CID CNAME     PNUMBER CITY
+---- ------ ---------- ------
+   1 SRI    8925448346 ERODE
+   2 MANI   8925448346 ERODE
+
+<button onclick="copy(this)">ROLLBACK;</button>
+SQL> ROLLBACK;
+Rollback complete.
+
+<button onclick="copyvalue('sql20')">copy</button>
+<textarea id="sql20" rows="3">
+SELECT *
+FROM CUSTOMER;
+</textarea>
+SQL> SELECT *
+  2  FROM CUSTOMER;
+ CID CNAME    PNUMBER CITY
+---- ----- ---------- ------
+   1 SRI   8925448346 ERODE
+</pre>
+</details>
+</fieldset>
+
+
+<fieldset>
+<legend>DCL</legend>
+<h3 id="sky">DATA  CONTROL LANGUAGE (DCL)</h3>
+<details>
+<summary id="sky">I] GRANT</summary>
+<pre>
+  This tatement is used to give a permission to a user.
+<u>SYNTAX</u>
+GRANT SQL_STATEMENT
+ON TABLE_NAME
+TO USER_NAME;
+<button onclick="copy(this)">SHOW USER;</button>
+SQL> SHOW USER;
+USER is "system"
+
+<button onclick="copyvalue('sql21')">copy</button>
+<textarea id="sql21" rows="3">
+GRANT SELECT
+ON CUSTOMER
+TO HR;
+</textarea>
+SQL> GRANT SELECT
+  2  ON CUSTOMER
+  3  TO HR;
+Grant succeeded.
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">II] REVOKE</summary>
+<pre>
+  Thiss statement is used to table back the permission from the user.
+<u>SYNTAX</u>
+REVOKE SQL_STATEMENT AND
+ON TABLE NAME
+FROM USER_NAME;
+
+SQL> CONNECT;
+Enter user-name: HR
+Enter password: *****
+Connected.
+
+SQL> SHOW USER;
+USER is "HR"
+
+<button onclick="copyvalue('sql22')">copy</button>
+<textarea id="sql22" rows="3">
+SELECT *
+FROM system.CUSTOMER;
+</textarea>
+SQL> SELECT *
+  2  FROM system.CUSTOMER;
+ CID CNAME     PNUMBER CITY
+---- ------ ---------- ------
+   1 SRI    8925448346 ERODE
+
+SQL> CONNECT;
+Enter user-name: system
+Enter password: *****
+Connected.
+
+<button onclick="copyvalue('sql23')">copy</button>
+<textarea id="sql23" rows="4">
+REVOKE SELECT 
+ON CUSTOMER
+FROM HR;
+</textarea>
+SQL> REVOKE SELECT
+  2  ON CUSTOMER
+  3  FROM HR;
+Revoke succeeded.
+
+SQL> CONNECT;
+Enter user-name: HR
+Enter password: *****
+Connected.
+
+SQL> SHOW USER;
+USER is "HR"
+
+SQL> SELECT *
+  2  FROM system.CUSTOMER;
+FROM system.CUSTOMER
+           *
+ERROR at line 2:
+ORA-00942: table or view does not exist
+</pre>
+</details>
+</fieldset>
+
+<fieldset>
+<legend>DQL</legend>
+<h3 id="sky">DATA QUERY LANGUAGE (DQL)</h3>
+<details>
+<summary id="sky">SELECT</summary>
+<pre>
+  This statement is used to retrieve data and display the data from the table
+<u>SYNTAX</u>
+SELECT* / COLUMN NAME / EXPRESSION / (ALIAS)
+FROM TABLE_NAME;
+
+DETAILS OF AN CUSTOMER FROM CUSTOMER TABLE.
+<button onclick="copyvalue('dql1')">copy</button>
+<textarea id="dql1" rows="3">
+SELECT *
+FROM CUSTOMER;
+</textarea>
+
+NAMES OF ALL THE EMPLOYEES.
+<button onclick="copyvalue('dql2')">copy</button>
+<textarea id="dql2" rows="3">
+SELECT ENAME
+FROM EMP;
+</textarea>
+
+NAME OF THE EMPLOYEES ALONG WITH THEIR DATE OF JOINING.
+<button onclick="copyvalue('dql3')">copy</button>
+<textarea id="dql3" rows="3">
+SELECT ENAME, HIREDATE
+FROM EMP;
+</textarea>
+
+EMPLOYEE NAME, SALARY AND COMMISSION GIVEN TO ALL THE EMPLOYEES.
+<button onclick="copyvalue('dql4')">copy</button>
+<textarea id="dql4" rows="3">
+SELECT ENAME, SAL, COMM
+FROM EMP;
+</textarea>
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="pink">CLEAR THE SCREEN</summary>
+<pre>
+<button onclick="copy(this)">CLEAR SCR;</button>
+</details>
+<hr>
+
+<details>
+<summary id="sky">DEPLICATION VALUES</summary>
+<pre>
+<u>SYNTAX</u>
+SELECT DISTINCT COLUMN_NAME
+FROM TABLE_NAME;
+<button onclick="copyvalue('dql15')">copy</button>
+<textarea id="dql15" rows="3">
+SELECT DISTINCT *
+FROM EMP;
+</textarea>
+
+<button onclick="copyvalue('dql16')">copy</button>
+<textarea id="dql16" rows="3">
+SELECT DISTINCT EID, ENAME, SAL, DEPTNO
+FROM EMP;
+</textarea>
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">OPERATORS + , - , * , / ,...</summary>
+<pre>
+TWO TYPES OF OPERANDS
+  1) IMMEDIATE VALUE
+  2) DIRECT VALUE
+
+EXAMPLE
+========
+SAL+100+200  SAL=100
+SAL=IMMEDIATE VALUE
++,= =OPERATORS
+100=DIRECT VALUE
+
+<button onclick="copyvalue('dql17')">copy</button>
+<textarea id="dql17" rows="3">
+SELECT ENAME, SAL, SAL*12
+FROM EMP;
+</textarea>
+
+<button onclick="copyvalue('dql18')">copy</button>
+<textarea id="dql18" rows="3">
+SELECT ENAME,SAL, COMM*12
+FROM EMP;
+</textarea>
+
+<button onclick="copyvalue('dql19')">copy</button>
+<textarea id="dql19" rows="3">
+SELECT ENAME, SAL+(10/100*SAL)
+FROM EMP;
+</textarea>
+
+HIKE
+=====
+SAL=100 HIKE =10%
+=110
+SAL+(HIKE/100*SAL)
+100+(10/100*100)
+100+10=110
+
+ENAME, SAL ALONG WITH 10% HIKE OF ALL THE EMPLOYEES FROM EMP TABLE.
+<button onclick="copyvalue('dql20')">copy</button>
+<textarea id="dql20" rows="3">
+SELECT ENAME,SAL+(10/100*SAL)
+FROM EMP;
+</textarea>
+
+DEDUCTION
+===========
+SAL=100  DEDUCTION=22%
+=17
+SAL-(DEDUCTION/100*SAL)
+100-(22/100*100)
+100-22=78
+
+ENAME, SALARY WITH 22% DEDUCTION OF ALL THE EMPLOYEES
+<button onclick="copyvalue('dql21')">copy</button>
+<textarea id="dql21" rows="3">
+SELECT ENAME, SAL-(22/100*SAL)
+FROM EMP;
+</textarea>
+SQL> SELECT ENAME, SAL-(22/100*SAL)
+  2  FROM EMP;
+ENAME SAL-(22/100*SAL)
+----- ----------------
+
+ENAME, JOB,HIREDATE, SALARY AND ANNUAL SALARY ALONG WITH 5% DEDUCTION AND ANNUAL COMMISSION WITH 10% HIKE.
+<button onclick="copyvalue('dql22')">copy</button>
+<textarea id="dql22" rows="5">
+SELECT ENAME,JOB, HIREDATE, 
+SAL,(SAL*12)-(5/100*(SAL*12)), 
+(COMM*12)+(10/100*(COMM*12))
+FROM EMP;
+</textarea>
+SQL> SELECT ENAME,JOB, HIREDATE, SAL,(SAL*12)-(5/100*(SAL*12)), (COMM*12)+(10/100*(COMM*12))
+  2  FROM EMP;
+ENAME JOB  HIREDATE  SAL (SAL*12)-(5/100*(SAL*12)) (COMM*12)+(10/100*(COMM*12))
+----- ---- --------- --- ------------------------- ----------------------------
+<pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">ALIAS</summary>
+<pre>
+Alternative names given a column
+<button onclick="copyvalue('dql23')">copy</button>
+<textarea id="dql23" rows="3">
+SELECT ENAME AS NAME
+FROM EMP;
+</textarea>
+
+<button onclick="copyvalue('dql24')">copy</button>
+<textarea id="dql24" rows="3">
+SELECT ENAME "NAME"
+FROM EMP;
+</textarea>
+
+<button onclick="copyvalue('dql25')">copy</button>
+<textarea id="dql25" rows="3">
+SELECT ENAME, (SAL*12) ANNUAL_SALARY
+FROM EMP;
+</textarea>
+SQL> SELECT ENAME, (SAL*12) ANNUAL_SALARY
+  2  FROM EMP;
+ENAME ANNUAL_SALARY
+----- -------------
+
+<button onclick="copyvalue('dql26')">copy</button>
+<textarea id="dql26" rows="5">
+SELECT ENAME,JOB, HIREDATE, SAL,
+(SAL*12)-(5/100*(SAL*12)) AS ANNUAL_SALARY_WITH_DEDUCTION, 
+(COMM*12)+(10/100*(COMM*12)) "ANNUAL COMM WITH HIKE"
+FROM EMP;
+</textarea>
+SQL> SELECT ENAME,JOB, HIREDATE, 
+SAL,(SAL*12)-(5/100*(SAL*12)) AS ANNUAL_SALARY_WITH_DEDUCTION, 
+(COMM*12)+(10/100*(COMM*12)) "ANNUAL COMM WITH HIKE"
+  2  FROM EMP;
+ENAME JOB  HIREDATE  SAL ANNUAL_SALARY_WITH_DEDUCTION ANNUAL COMM WITH HIKE
+----- ---- --------- --- ---------------------------- ---------------------
+</pre>
+</details>
+<hr>
+
+<details>
+<summary id="sky">SELECTION</summary>
+<pre>
+<u>SYNTAX</u>
+SELECT */DISTINCT],
+COLUMN_NAME/ EXPRESSION
+FROM &lt;TABLE_NAME&gt;
+WHERE &lt;FILE_CONDITION&gt;;
+
+<span id="pink">ORDER OF EXECUTION</span>
+1. FROM
+2. WHERE
+3. SELECT
+
+DNO FROM EMP WHERE DNO IS 10
+<button onclick="copyvalue('dql27')">copy</button>
+<textarea id="dql27" rows="4">
+SELECT DNO
+FROM EMP
+WHERE DNO=10;
+</textarea>
+
+EMPLOYEE NAME AND SALARY GIVEN TO ALL THE EMPLOYEE GETTING SALARY MORE THAN 1500.
+<button onclick="copyvalue('dql28')">copy</button>
+<textarea id="dql28" rows="4">
+SELECT ENAME, SAL
+FROM EMP
+WHERE SAL>1500;
+</textarea>
+
+EMPLOYEE NAME AND HIREDATE OF AN EMPLOYEE IF HE IS HIRED AFTER 81
+<button onclick="copyvalue('dql29')">copy</button>
+<textarea id="dql29" rows="4">
+SELECT ENAME, HIREDATE
+FROM EMP
+WHERE HIREDATE<'31-DEC-81';
+</textarea>
+
+EMPNAME, JOB AND HIREDATE IF THE EMP WORKING AS A SALESMAN
+<button onclick="copyvalue('dql30')">copy</button>
+<textarea id="dql30" rows="4">
+SELECT ENAME, JOB, HIREDATE
+FROM EMP
+WHERE JOB='SALESMAN';
+</textarea>
+
+<u>SYNTAX</u>
+SELECT TABLE_NAME.*, COLUMN_NAME/ EXXPRESSION
+FROM TABLE_NAME;
+
+NAME, SAL WITH MONTHLY HIKE OF 50
+<button onclick="copyvalue('dql31')">copy</button>
+<textarea id="dql31" rows="4">
+SELECT ENAME, SAL, (SAL+50) HIKE
+FROM EMP;
+</textarea>
+</pre>
+</details>
+<hr>
+
+<span id="sky">OPERATORS</span>
+<pre>
+1. ARITHMETC OPERATORS (+, -, *,/)
+2. COMPARISION OPERATORS (=, !=, OR&lt;&gt;)
+3. RELATION OPERATORS (>, <, <=, >=)
+4. LOGICAL OPERATOR (AND, OR, NOT)
+5. SPECIAL OPERATORS (IS, IS NOT, BETWEEN, NOT BETWEEN, IN, NOT IN)
+6. CONCATINATION OPERATORS (||)
+7. SUB QUERY (ALL, ANY, EXIST, NOT EXIST)
+</pre>
+
+
+
+</fieldset>
+<div style="display: none;">
+
+<details>
+<summary id="sky"></summary>
+</details>
+
+<h3 id="sky"></h3>
+<span id="sky"></span>
+
+<button onclick="copy(this)"></button>
+
+<button onclick="copyvalue('dq3')">copy</button>
+<textarea id="dq3" rows="3">
+</textarea>
+
+</div>
+<script type="text/javascript">
+function copyvalue(id){const copy=document.getElementById(id);copy.focus();copy.select();document.execCommand("Copy");}
+function clearvalue(id){const del=document.getElementById(id);del.select();document.execCommand("Delete");}	
+
+function copy(that){
+var inp=document.createElement('input');
+document.body.appendChild(inp)
+inp.value=that.textContent;
+inp.select();
+document.execCommand('copy', false);
+inp.remove();
+}
+
+function copynext(that){
+var inp=document.createElement('input');
+document.body.appendChild(inp);
+inp.value=that.nextElementSibling.textContent;
+// inp.focus();
+alert("copy")
+inp.select();
+document.execCommand('copy', false);
+inp.remove();
+}
+</script>
+</body>
+</html>
