@@ -2,15 +2,38 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Palindrome or Not</title>
-</head>
 <style type="text/css">
-fieldset{width: 100px; margin: auto; padding: auto;}
-button{margin: 1px; cursor: pointer;}
-textarea{overflow: scroll;}
+#video{
+	width: 100%;
+	max-width: device-width;
+	height: 80vh;
+	max-height: device-height;
+}
+button{
+	margin: 1px;
+	cursor: pointer;
+}
+fieldset{
+	max-width:device-width;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+}
+textarea{
+	overflow: scroll;
+	width: 100%;
+	max-width:device-width;
+}
 </style>
+</head>
 <body>
-<fieldset style="border-radius: 15px;">
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/51.Palindrome_or_Not.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
 <legend>Palindrome or Not</legend>
 <label>Enter Any</label>
 <button onclick="clearvalue('text1')">x</button>
@@ -22,27 +45,42 @@ textarea{overflow: scroll;}
 <br>
 <textarea id="copy" rows="5">Palindrome or not</textarea>
 </fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
+</div>
 <script type="text/javascript">
 function run(){
-function checkPalindrome(str){
-str = str.replace(/[^a-zA-Z0-9]/g, '');
-var str1=str.split('').reverse().join('');
-document.getElementById('copy').value=str1+ "\n";
-return str === str.split('').reverse().join('');
-}
-const userInput=document.getElementById('text1').value; 
-if(checkPalindrome(userInput)){
-document.getElementById('copy').value +=userInput +"\n"+"is a palindrome"
-}
-else{
-document.getElementById('copy').value +=userInput +"\n"+"is not a palindrome"
-}
-if(userInput==""){document.getElementById('copy').value="Enter Value";}
+	function checkPalindrome(str){
+		str = str.replace(/[^a-zA-Z0-9]/g, '');
+		var str1=str.split('').reverse().join('');
+		document.getElementById('copy').value=str1+ "\n";
+		return str === str.split('').reverse().join('');
+	}
+	const userInput=document.getElementById('text1').value;
+	if(checkPalindrome(userInput)){
+		document.getElementById('copy').value +=userInput +"\n"+"is a palindrome";
+	}
+	else{
+		document.getElementById('copy').value +=userInput +"\n"+"is not a palindrome";
+	}
+	if(userInput==""){
+		document.getElementById('copy').value="Enter Value";
+	}
 }
 </script>
 <script type="text/javascript">
-function copyvalue(id){const copy=document.getElementById(id);copy.focus();copy.select();document.execCommand("Copy");}
-function clearvalue(id){const del=document.getElementById(id);del.select();document.execCommand("Delete");}	
+function copyvalue(id){
+	const copy=document.getElementById(id);
+	copy.focus();
+	copy.select();
+	document.execCommand("Copy");
+}
+function clearvalue(id){
+	const del=document.getElementById(id);
+	del.select();
+	document.execCommand("Delete");
+}	
 </script>
 </body>
 </html>
