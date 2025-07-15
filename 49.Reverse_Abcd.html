@@ -1,14 +1,40 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html>
+<head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reverse Abcd</title>
-
 <style type="text/css">
-button{margin: 1px; cursor: pointer;}
-textarea{overflow: scroll;}
-fieldset{width: 100px; margin: auto; padding: auto;}
+#video{
+	width: 100%;
+	max-width: device-width;
+	height: 80vh;
+	max-height: device-height;
+}
+button{
+	margin: 1px;
+	cursor: pointer;
+}
+fieldset{
+	max-width:device-width;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+}
+textarea{
+	overflow: scroll;
+	width: 100%;
+	max-width:device-width;
+}
 </style>
-
+</head>
+<body>
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/49.Reverse_Abcd.html">Source Code</a>
+</button>
+<br><br>
 <fieldset>
+<legend>Reverse Abcd</legend>
 <label>Ending Abcd</label>
 <button onclick="clearvalue('sabcd')">X</button>
 <input id="sabcd" type="text" oninput="run1()" placeholder="Abcd Only Ex.z" value="z">
@@ -29,48 +55,74 @@ fieldset{width: 100px; margin: auto; padding: auto;}
 <br>
 <textarea id="copy" rows="10"></textarea>
 </fieldset>
-
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
+</div>
 <script type="text/javascript">
 function run1(){
-document.getElementById('copy').value='';
-var sabcd=document.getElementById('sabcd').value.toLowerCase();
-var eabcd=document.getElementById('eabcd').value.toLowerCase();
-var ssabcd=sabcd.charCodeAt(0);
-var eeabcd=eabcd.charCodeAt(0);
-if(sabcd=="" || eabcd==""){document.getElementById('copy').value="Enter All Values"}
-for(var i=ssabcd; i>=eeabcd; i--){
-document.getElementById("copy").value+=(String.fromCharCode(i))+" ";
-}}
+	document.getElementById('copy').value='';
+	var sabcd=document.getElementById('sabcd').value.toLowerCase();
+	var eabcd=document.getElementById('eabcd').value.toLowerCase();
+	var ssabcd=sabcd.charCodeAt(0);
+	var eeabcd=eabcd.charCodeAt(0);
+	if(sabcd=="" || eabcd==""){
+		document.getElementById('copy').value="Enter All Values";
+	}
+	for(var i=ssabcd; i>=eeabcd; i--){
+		document.getElementById("copy").value+=(String.fromCharCode(i))+" ";
+	}
+}
 function run2(){
-document.getElementById('copy').value='';
-var sabcd=document.getElementById('sabcd').value.toLowerCase();
-var eabcd=document.getElementById('eabcd').value.toLowerCase();
-var ssabcd=sabcd.charCodeAt(0);
-var eeabcd=eabcd.charCodeAt(0);
-if(sabcd=="" || eabcd==""){document.getElementById('copy').value="Enter All Values"}
-for(var i=ssabcd; i>=eeabcd; i--){
-document.getElementById("copy").value+=(String.fromCharCode(i))+"\n";
-}}
+	document.getElementById('copy').value='';
+	var sabcd=document.getElementById('sabcd').value.toLowerCase();
+	var eabcd=document.getElementById('eabcd').value.toLowerCase();
+	var ssabcd=sabcd.charCodeAt(0);
+	var eeabcd=eabcd.charCodeAt(0);
+	if(sabcd=="" || eabcd==""){
+		document.getElementById('copy').value="Enter All Values";
+	}
+	for(var i=ssabcd; i>=eeabcd; i--){
+		document.getElementById("copy").value+=(String.fromCharCode(i))+"\n";
+	}
+}
 function run3(){
-document.getElementById('copy').value='';
-var sabcd=document.getElementById('sabcd').value.toUpperCase();
-var eabcd=document.getElementById('eabcd').value.toUpperCase();
-var ssabcd=sabcd.charCodeAt(0);
-var eeabcd=eabcd.charCodeAt(0);
-if(sabcd=="" || eabcd==""){document.getElementById('copy').value="Enter All Values"}
-for(var i=ssabcd; i>=eeabcd; i--){
-document.getElementById("copy").value+=(String.fromCharCode(i))+" ";
-}}
+	document.getElementById('copy').value='';
+	var sabcd=document.getElementById('sabcd').value.toUpperCase();
+	var eabcd=document.getElementById('eabcd').value.toUpperCase();
+	var ssabcd=sabcd.charCodeAt(0);
+	var eeabcd=eabcd.charCodeAt(0);
+	if(sabcd=="" || eabcd==""){
+		document.getElementById('copy').value="Enter All Values";
+	}
+	for(var i=ssabcd; i>=eeabcd; i--){
+		document.getElementById("copy").value+=(String.fromCharCode(i))+" ";
+	}
+}
 function run4(){
-document.getElementById('copy').value='';
-var sabcd=document.getElementById('sabcd').value.toUpperCase();
-var eabcd=document.getElementById('eabcd').value.toUpperCase();
-var ssabcd=sabcd.charCodeAt(0);
-var eeabcd=eabcd.charCodeAt(0);
-if(sabcd=="" || eabcd==""){document.getElementById('copy').value="Enter All Values"}
-for(var i=ssabcd; i>=eeabcd; i--){
-document.getElementById("copy").value+=(String.fromCharCode(i))+"\n";
-}}
-function copyvalue(id){const copy=document.getElementById(id);copy.focus();copy.select();document.execCommand("Copy");}
-function clearvalue(id){const del=document.getElementById(id);del.select();document.execCommand("Delete");}	
+	document.getElementById('copy').value='';
+	var sabcd=document.getElementById('sabcd').value.toUpperCase();
+	var eabcd=document.getElementById('eabcd').value.toUpperCase();
+	var ssabcd=sabcd.charCodeAt(0);
+	var eeabcd=eabcd.charCodeAt(0);
+	if(sabcd=="" || eabcd==""){
+		document.getElementById('copy').value="Enter All Values";
+	}
+	for(var i=ssabcd; i>=eeabcd; i--){
+		document.getElementById("copy").value+=(String.fromCharCode(i))+"\n";
+	}
+}
+function copyvalue(id){
+	const copy=document.getElementById(id);
+	copy.focus();
+	copy.select();
+	document.execCommand("Copy");
+}
+function clearvalue(id){
+	const del=document.getElementById(id);
+	del.select();
+	document.execCommand("Delete");
+}	
 </script>
+</body>
+</html>
