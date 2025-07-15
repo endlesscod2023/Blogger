@@ -2,16 +2,39 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Reverse Any</title>
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reverse String</title>
 <style type="text/css">
-fieldset{width: 100px; margin: auto; padding: auto;}
-button{margin: 1px; cursor: pointer;}
-textarea{overflow: scroll;}
+#video{
+	width: 100%;
+	max-width: device-width;
+	height: 80vh;
+	max-height: device-height;
+}
+button{
+	margin: 1px;
+	cursor: pointer;
+}
+fieldset{
+	max-width:device-width;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+}
+textarea{
+	overflow: scroll;
+	width: 100%;
+	max-width:device-width;
+}
 </style>
+</head>
 <body>
-<fieldset style="border-radius: 15px;">
-<legend>Reverse Any</legend>
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/52-Reverse-Any/blob/main/52-Reverse-Any.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
+<legend>Reverse String</legend>
 <label>Enter Any</label>
 <button onclick="clearvalue('text1')">x</button>
 <br>
@@ -20,21 +43,33 @@ textarea{overflow: scroll;}
 <button onclick="copyvalue('copy')">Copy</button>
 <button onclick="clearvalue('copy')">x</button>
 <br>
-<textarea id="copy" rows="5">Reverse Any</textarea>
+<textarea id="copy" rows="5">Reverse String</textarea>
 </fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
+</div>
 <script type="text/javascript">
 function run(){
-const str=document.getElementById('text1').value;
-document.getElementById('copy').value="";
-var str1=str.split('').reverse().join('');
-// alert(str1)
-document.getElementById('copy').value=str1;
-if(str==""){document.getElementById('copy').value="Enter Value";}
+	const str=document.getElementById('text1').value;
+	document.getElementById('copy').value="";
+	var str1=str.split('').reverse().join('');
+	document.getElementById('copy').value=str1;
+	if(str==""){
+		document.getElementById('copy').value="Enter Value";
+	}
 }
-</script>
-<script type="text/javascript">
-function copyvalue(id){const copy=document.getElementById(id);copy.focus();copy.select();document.execCommand("Copy");}
-function clearvalue(id){const del=document.getElementById(id);del.select();document.execCommand("Delete");}	
+function copyvalue(id){
+	const copy=document.getElementById(id);
+	copy.focus();
+	copy.select();
+	document.execCommand("Copy");
+}
+function clearvalue(id){
+	const del=document.getElementById(id);
+	del.select();
+	document.execCommand("Delete");
+}
 </script>
 </body>
 </html>
