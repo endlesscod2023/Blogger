@@ -5,15 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Oracle SQL</title>
 <style type="text/css">
-button{cursor: pointer; margin: 1px}
-textarea{overflow: scroll; width: 90vh}
-#sky{background-color: skyblue;}
-#pink{background-color: pink;}
+#video{
+  width: 100%;
+  max-width: device-width;
+  height: 80vh;
+  max-height: device-height;
+}
+button{
+  margin: 1px;
+  cursor: pointer;
+}
+fieldset{
+  max-width:device-width;
+  margin: auto;
+  padding: auto;
+  border-radius: 10px;
+}
+textarea{
+  overflow: scroll;
+  width: 100%;
+  max-width:device-width;
+}
 </style>
 </head>
 <body>
 <button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
-<a href="https://github.com/endlesscod2023/53-Oracle-SQL/blob/main/53%20Oracle%20SQL.html">Source Code</a>
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/53.Oracle_SQL.html">Source Code</a>
 </button>
 <br><br>
 <fieldset>
@@ -90,7 +107,7 @@ SQL> desc custom;
  CID       NOT NULL NUMBER(5)
  CNAME              VARCHAR2(12)
  PNUMBER            NUMBER(10)
- GENTER             VARCHAR2(10)	
+ GENTER             VARCHAR2(10)  
 </pre>
 </details>
 <hr>
@@ -221,7 +238,7 @@ SQL> DESC CUSTOM;
 <summary id="sky">VI] TRUNCATE</summary>
 <pre>
 <u>SYNTAX</u>
-TRUNCATE TABLE TABLE_NAME;	
+TRUNCATE TABLE TABLE_NAME;  
 <button onclick="copyvalue('sql7')">copy</button>
 <textarea id="sql7" rows="6">
 CREATE TABLE PRODUCT(
@@ -272,7 +289,7 @@ PRODUCT                  TABLE
 
 <pre>
 <u>SYNTAX</u>
-TRUNCATE TABLE TABLE_NAME;	
+TRUNCATE TABLE TABLE_NAME;  
 <button onclick="copyvalue('sql9')">copy</button>
 <textarea id="sql9" rows="6">
 CREATE TABLE PRODUCT1(
@@ -871,18 +888,6 @@ FROM EMP;
 </details>
 <hr>
 
-<span id="sky">OPERATORS</span>
-<pre>
-1. ARITHMETC OPERATORS (+, -, *,/)
-2. COMPARISION OPERATORS (=, !=, OR&lt;&gt;)
-3. RELATION OPERATORS (>, <, <=, >=)
-4. LOGICAL OPERATOR (AND, OR, NOT)
-5. SPECIAL OPERATORS (IS, IS NOT, BETWEEN, NOT BETWEEN, IN, NOT IN)
-6. CONCATINATION OPERATORS (||)
-7. SUB QUERY (ALL, ANY, EXIST, NOT EXIST)
-</pre>
-
-
 
 </fieldset>
 <div style="display: none;">
@@ -903,7 +908,7 @@ FROM EMP;
 </div>
 <script type="text/javascript">
 function copyvalue(id){const copy=document.getElementById(id);copy.focus();copy.select();document.execCommand("Copy");}
-function clearvalue(id){const del=document.getElementById(id);del.select();document.execCommand("Delete");}	
+function clearvalue(id){const del=document.getElementById(id);del.select();document.execCommand("Delete");} 
 
 function copy(that){
 var inp=document.createElement('input');
