@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Random Sum Subtraction</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Random Sum Subtraction</title>
 <style type="text/css">
-fieldset{width: fit-content; margin: auto; padding: auto;}
-button{margin: 1px; cursor: pointer;}
+#video{
+  width: 100%;
+  max-width: device-width;
+  height: 80vh;
+  max-height: device-height;
+}
+button{
+  margin: 1px;
+  cursor: pointer;
+}
+fieldset{
+  max-width:device-width;
+  margin: auto;
+  padding: auto;
+  border-radius: 10px;
+}
 </style>
 </head>
 <body>
-<fieldset style="border-radius: 3vh;">
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/55.Random_Sum_Subtraction.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
 <legend>Subtraction Auto</legend>
 <form id="form">
 <label id="question">1-1</label>
-<br>
-<input type="text" id="input" placeholder="Enter Number Only" style="width:20vh">
+<input type="number" id="input" placeholder="Enter Number Only" style="width:20vh">
 <br><br>
 <button type="submit">Submit</button>
 </form> 
 </fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
+</div>
 <script type="text/javascript">
 const r1 = Math.ceil(Math.random() * 10);
 const r2 = Math.ceil(Math.random() * 10);
@@ -29,11 +50,13 @@ const inputEl = document.getElementById("input");
 questionEl.innerText = `${r1}-${r2}=?`;
 const correctAns = r1 - r2;
 formEl.addEventListener("submit", () => {
-const userAns = +inputEl.value;
-if (userAns === correctAns){
-}else{
-alert(`${r1}-${r2}=${correctAns}`);
-}});
+  const userAns = +inputEl.value;
+  if (userAns === correctAns){
+  }
+  else{
+    alert(`${r1}-${r2}=${correctAns}`);
+  }
+});
 </script>
 </body>
 </html>
