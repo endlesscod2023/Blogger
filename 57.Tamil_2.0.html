@@ -5,14 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tamil 2.0</title>
 <style type="text/css">
-button{margin: 1px; cursor: pointer;}
-input{cursor: pointer;}
+#video{
+	width: 100%;
+	max-width: device-width;
+	height: 80vh;
+	max-height: device-height;
+}
+button{
+	margin: 1px;
+	cursor: pointer;
+}
+fieldset{
+	max-width:device-width;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+}
+textarea{
+	overflow: scroll;
+	width: 100%;
+	max-width:device-width;
+}
+input{
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
-<p>i'm using html </p>
-<fieldset style="width: 100px; margin: auto; padding: auto;">
-<textarea id="t1" cols="100" rows="10" style="overflow: scroll;">
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/57.Tamil_2.0.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
+<legend>Tamil 3.0</legend>
+<textarea id="t1" rows="10">
 </textarea>
 <table>
 <tr>
@@ -71,7 +97,7 @@ f.value=f.value.slice(0,-1);" value="<"></td>
 
 <table>
 <tr style="display: none;" id="c1" onclick="this.style.display='none'">
-<td><input type="button" onclick="f=document.getElementById('t1');f.value=f.value.slice(0, -1);f.value+=this.value" value="&#2965;"></td>
+<td><input type="button" onclick="document.getElementById('t1').value+=this.value" value="&#2965;"></td>
 <td><input type="button" onclick="f=document.getElementById('t1');f.value=f.value.slice(0, -1);f.value+=this.value" value="&#2965;&#3006;"></td>
 <td><input type="button" onclick="f=document.getElementById('t1');f.value=f.value.slice(0, -1);f.value+=this.value" value="&#2965;&#3007;"></td>
 <td><input type="button" onclick="f=document.getElementById('t1');f.value=f.value.slice(0, -1);f.value+=this.value" value="&#2965;&#3008;"></td>
@@ -359,7 +385,7 @@ f.value=f.value.slice(0,-1);" value="<"></td>
 </tr>
 </table>
 <table>
-<tr style="display: none;" id="c18" onclick="this.style.display='none'">
+<tr style="display: none;" id="c18" onclick="this.style.display='none'; document.getElementById('hbr').style.display='inline';">
 <td><input type="button" onclick="f=document.getElementById('t1');f.value=f.value.slice(0, -1);f.value+=this.value" value="&#2985;"></td>
 <td><input type="button" onclick="f=document.getElementById('t1');f.value=f.value.slice(0, -1);f.value+=this.value" value="&#2985;&#3006;"></td>
 <td><input type="button" onclick="f=document.getElementById('t1');f.value=f.value.slice(0, -1);f.value+=this.value" value="&#2985;&#3007;"></td>
@@ -436,19 +462,32 @@ f.value=f.value.slice(0,-1);" value="<"></td>
 </tr>
 </table>
 </fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
+</div>
 <script type="text/javascript">
-function copyvalue(id){const copy=document.getElementById(id);copy.focus();copy.select();document.execCommand("Copy");}
-function clearscreen(id){const del=document.getElementById(id);del.select();document.execCommand("Delete");}
-</script>
-<script type="text/javascript">
-function space(){document.getElementById('t1').value+=" ";}
-function newlin(){document.getElementById('t1').value+="\n";}
-</script>
-<script type="text/javascript">
+function copyvalue(id){
+	const copy=document.getElementById(id);
+	copy.focus();
+	copy.select();
+	document.execCommand("Copy");
+}
+function clearscreen(id){
+	const del=document.getElementById(id);
+	del.select();
+	document.execCommand("Delete");
+}
+function space(){
+	document.getElementById('t1').value+=" ";
+}
+function newlin(){
+	document.getElementById('t1').value+="\n";
+}
 function click1(id){
-document.querySelectorAll("#c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#c12,#c13,#c14,#c15,#c16,#c17,#c18").forEach(element=>{
-	element.style.display="none";
-})
+	document.querySelectorAll("#c1,#c2,#c3,#c4,#c5,#c6,#c7,#c8,#c9,#c10,#c11,#c12,#c13,#c14,#c15,#c16,#c17,#c18").forEach(element=>{
+		element.style.display="none";
+	});
 	document.getElementById(id).style.display="inline";
 }
 </script>
