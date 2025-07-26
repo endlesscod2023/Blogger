@@ -57,95 +57,106 @@ textarea{
 <iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="BNdyEtJZBeI" src="https://www.youtube.com/embed/BNdyEtJZBeI"></iframe>
 </div>
 <script type="text/javascript">
-function copyvalue(id){
-	const copy=document.getElementById(id);
+function copyvalue(id) {
+	const copy = document.getElementById(id);
 	copy.focus();
 	copy.select();
 	document.execCommand("Copy");
 }
-function clearvalue(id){
-	const del=document.getElementById(id);
+
+function clearvalue(id) {
+	const del = document.getElementById(id);
 	del.select();
 	document.execCommand("Delete");
 }
-function copy(that){
-	var inp=document.createElement('input');
+
+function copy(that) {
+	var inp = document.createElement('input');
 	document.body.appendChild(inp)
-	inp.value=that.textContent
+	inp.value = that.textContent
 	inp.select();
 	document.execCommand('copy', false);
 	inp.remove();
 }
-</script>
-<script type="text/javascript">
-function run(){ 
-n09();
-n0();
-n1();
-n2();
-n3();
-n4();
-n5();
-n6();
-n7();
-n8();
-n9();
+
+function run() {
+	n09();
+	n0();
+	n1();
+	n2();
+	n3();
+	n4();
+	n5();
+	n6();
+	n7();
+	n8();
+	n9();
 }
 // no
-function n09(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[0-9]+/g,'').length;
-	document.getElementById('n09').textContent="0-9="+number;
+function n09() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[0-9]+/g, '').length;
+	document.getElementById('n09').textContent = "0-9=" + number;
 }
-function n0(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[0]+/g,'').length;
-	document.getElementById('n0').textContent="0="+number;
+
+function n0() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[0]+/g, '').length;
+	document.getElementById('n0').textContent = "0=" + number;
 }
-function n1(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[1]+/g,'').length;
-	document.getElementById('n1').textContent="1="+number;
+
+function n1() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[1]+/g, '').length;
+	document.getElementById('n1').textContent = "1=" + number;
 }
-function n2(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[2]+/g,'').length;
-	document.getElementById('n2').textContent="2="+number;
+
+function n2() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[2]+/g, '').length;
+	document.getElementById('n2').textContent = "2=" + number;
 }
-function n3(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[3]+/g,'').length;
-	document.getElementById('n3').textContent="3="+number;
+
+function n3() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[3]+/g, '').length;
+	document.getElementById('n3').textContent = "3=" + number;
 }
-function n4(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[4]+/g,'').length;
-	document.getElementById('n4').textContent="4="+number;
+
+function n4() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[4]+/g, '').length;
+	document.getElementById('n4').textContent = "4=" + number;
 }
-function n5(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[5]+/g,'').length;
-	document.getElementById('n5').textContent="5="+number;
+
+function n5() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[5]+/g, '').length;
+	document.getElementById('n5').textContent = "5=" + number;
 }
-function n6(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[6]+/g,'').length;
-	document.getElementById('n6').textContent="6="+number;
+
+function n6() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[6]+/g, '').length;
+	document.getElementById('n6').textContent = "6=" + number;
 }
-function n7(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[7]+/g,'').length;
-	document.getElementById('n7').textContent="7="+number;
+
+function n7() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[7]+/g, '').length;
+	document.getElementById('n7').textContent = "7=" + number;
 }
-function n8(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[8]+/g,'').length;
-	document.getElementById('n8').textContent="8="+number;
+
+function n8() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[8]+/g, '').length;
+	document.getElementById('n8').textContent = "8=" + number;
 }
-function n9(){
-	var n=document.getElementById('txt1').value;
-	var number=n.length-n.replace(/[9]+/g,'').length;
-	document.getElementById('n9').textContent="9="+number;
+
+function n9() {
+	var n = document.getElementById('txt1').value;
+	var number = n.length - n.replace(/[9]+/g, '').length;
+	document.getElementById('n9').textContent = "9=" + number;
 }
 </script>
 </body>
