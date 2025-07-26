@@ -51,9 +51,7 @@ questionEl.innerText = `${r1}*${r2}=?`;
 const correctAns = r1 * r2;
 formEl.addEventListener("submit", () => {
   const userAns = +inputEl.value;
-  if (userAns === correctAns){
-  }
-  else{
+  if (userAns === correctAns) {} else {
     alert(`${r1}*${r2}=${correctAns}`);
   }
 });
