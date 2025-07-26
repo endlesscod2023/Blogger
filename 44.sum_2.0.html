@@ -26,7 +26,7 @@ textarea{
   width: 100%;
   max-width:device-width;
 }
-li{
+#li{
   display: inline-block;
 }
 section{
@@ -44,11 +44,11 @@ section{
 <br><br>
 <section id="add">
 <ul>
-<li><a href="#add"><button style="background: orange;">Add</button></a></li>
-<li><a href="#sub"><button>Sub</button></a></li>
-<li><a href="#mul"><button>mul</button></a></li>
-<li><a href="#divid"><button>divid</button></a></li>
-<li><a href="#table"><button>table</button></a></li>
+<li id="li"><a href="#add"><button style="background: orange;">Add</button></a></li>
+<li id="li"><a href="#sub"><button>Sub</button></a></li>
+<li id="li"><a href="#mul"><button>mul</button></a></li>
+<li id="li"><a href="#divid"><button>divid</button></a></li>
+<li id="li"><a href="#table"><button>table</button></a></li>
 </ul>
 <fieldset>
 <legend>Add</legend>
@@ -71,11 +71,11 @@ section{
 
 <section id="sub">
 <ul>
-<li><a href="#add"><button>Add</button></a></li>
-<li><a href="#sub"><button style="background: orange;">Sub</button></a></li>
-<li><a href="#mul"><button>mul</button></a></li>
-<li><a href="#divid"><button>divid</button></a></li>
-<li><a href="#table"><button>table</button></a></li>
+<li id="li"><a href="#add"><button>Add</button></a></li>
+<li id="li"><a href="#sub"><button style="background: orange;">Sub</button></a></li>
+<li id="li"><a href="#mul"><button>mul</button></a></li>
+<li id="li"><a href="#divid"><button>divid</button></a></li>
+<li id="li"><a href="#table"><button>table</button></a></li>
 </ul>
 <fieldset>
 <legend>Sub</legend>
@@ -99,11 +99,11 @@ section{
 
 <section id="mul">
 <ul>
-<li><a href="#add"><button>Add</button></a></li>
-<li><a href="#sub"><button>Sub</button></a></li>
-<li><a href="#mul"><button style="background: orange;">mul</button></a></li>
-<li><a href="#divid"><button>divid</button></a></li>
-<li><a href="#table"><button>table</button></a></li>
+<li id="li"><a href="#add"><button>Add</button></a></li>
+<li id="li"><a href="#sub"><button>Sub</button></a></li>
+<li id="li"><a href="#mul"><button style="background: orange;">mul</button></a></li>
+<li id="li"><a href="#divid"><button>divid</button></a></li>
+<li id="li"><a href="#table"><button>table</button></a></li>
 </ul>
 <fieldset>
 <legend>mul</legend>
@@ -127,11 +127,11 @@ section{
 
 <section id="divid">
 <ul>
-<li><a href="#add"><button>Add</button></a></li>
-<li><a href="#sub"><button>Sub</button></a></li>
-<li><a href="#mul"><button>mul</button></a></li>
-<li><a href="#divid"><button style="background: orange;">divid</button></a></li>
-<li><a href="#table"><button>table</button></a></li>
+<li id="li"><a href="#add"><button>Add</button></a></li>
+<li id="li"><a href="#sub"><button>Sub</button></a></li>
+<li id="li"><a href="#mul"><button>mul</button></a></li>
+<li id="li"><a href="#divid"><button style="background: orange;">divid</button></a></li>
+<li id="li"><a href="#table"><button>table</button></a></li>
 </ul>
 <fieldset>
 <legend>divid</legend>
@@ -155,11 +155,11 @@ section{
 
 <section id="table">
 <ul>
-<li><a href="#add"><button>Add</button></a></li>
-<li><a href="#sub"><button>Sub</button></a></li>
-<li><a href="#mul"><button>mul</button></a></li>
-<li><a href="#divid"><button>divid</button></a></li>
-<li><a href="#table"><button style="background: orange;">table</button></a></li>
+<li id="li"><a href="#add"><button>Add</button></a></li>
+<li id="li"><a href="#sub"><button>Sub</button></a></li>
+<li id="li"><a href="#mul"><button>mul</button></a></li>
+<li id="li"><a href="#divid"><button>divid</button></a></li>
+<li id="li"><a href="#table"><button style="background: orange;">table</button></a></li>
 </ul>
 <fieldset>
 <legend>table</legend>
@@ -186,66 +186,71 @@ section{
 </div>
 </section>
 <script type="text/javascript">
-function run1(){
-  var a1=document.getElementById('txt1').value;
-  var a2=document.getElementById('txt2').value;
-  document.getElementById('copy3').value=+a1+ +a2;
-}
-function run2(){
-  var s1=document.getElementById('txt4').value;
-  var s2=document.getElementById('txt5').value;
-  document.getElementById('copy6').value=s1-s2;
-}
-function run3(){
-  var a1=document.getElementById('txt7').value;
-  var a2=document.getElementById('txt8').value;
-  document.getElementById('copy9').value=+a1* +a2;
-}
-function run4(){
-  var a1=document.getElementById('txt10').value;
-  var a2=document.getElementById('txt11').value;
-  document.getElementById('copy12').value=+a1/ +a2;
-}
-function run5(){
-  var m1=document.getElementById('txt13').value;
-  var m2=document.getElementById('txt14').value;
-  var c="";
-  for(var i=1; i<=m2; i++){
-    c+=i+"*"+m1+"="+m1*i+"\n";
-    document.getElementById('copy15').value=
-    m1+"\n"
-    +c;
-  }
-  if(m1=="" || m2==""){
-    document.getElementById('copy15').value="Enter table values";
-  }
-}
-function run6(){
-  var m1=document.getElementById('txt13').value;
-  var m2=document.getElementById('txt14').value;
-  var c="";
-  for(var i=1; i<=m2; i++){
-    c+=m1+"*"+i+"="+m1*i+"\n";
-    document.getElementById('copy15').value=
-    m1+"\n"
-    +c;
-  }
-  if(m1=="" || m2==""){
-    document.getElementById('copy15').value="Enter table values";
-  }
-}
-</script>
-<script type="text/javascript">
-function copyvalue(id){
-  const copy=document.getElementById(id);
+function copyvalue(id) {
+  const copy = document.getElementById(id);
   copy.focus();
   copy.select();
   document.execCommand("Copy");
 }
-function clearvalue(id){
-  const del=document.getElementById(id);
+
+function clearvalue(id) {
+  const del = document.getElementById(id);
   del.select();
   document.execCommand("Delete");
+}
+
+function run1() {
+  var a1 = document.getElementById('txt1').value;
+  var a2 = document.getElementById('txt2').value;
+  document.getElementById('copy3').value = +a1 + +a2;
+}
+
+function run2() {
+  var s1 = document.getElementById('txt4').value;
+  var s2 = document.getElementById('txt5').value;
+  document.getElementById('copy6').value = s1 - s2;
+}
+
+function run3() {
+  var a1 = document.getElementById('txt7').value;
+  var a2 = document.getElementById('txt8').value;
+  document.getElementById('copy9').value = +a1 * +a2;
+}
+
+function run4() {
+  var a1 = document.getElementById('txt10').value;
+  var a2 = document.getElementById('txt11').value;
+  document.getElementById('copy12').value = +a1 / +a2;
+}
+
+function run5() {
+  var m1 = document.getElementById('txt13').value;
+  var m2 = document.getElementById('txt14').value;
+  var c = "";
+  for (var i = 1; i <= m2; i++) {
+    c += i + "*" + m1 + "=" + m1 * i + "\n";
+    document.getElementById('copy15').value =
+      m1 + "\n" +
+      c;
+  }
+  if (m1 == "" || m2 == "") {
+    document.getElementById('copy15').value = "Enter table values";
+  }
+}
+
+function run6() {
+  var m1 = document.getElementById('txt13').value;
+  var m2 = document.getElementById('txt14').value;
+  var c = "";
+  for (var i = 1; i <= m2; i++) {
+    c += m1 + "*" + i + "=" + m1 * i + "\n";
+    document.getElementById('copy15').value =
+      m1 + "\n" +
+      c;
+  }
+  if (m1 == "" || m2 == "") {
+    document.getElementById('copy15').value = "Enter table values";
+  }
 }
 </script>
 </body>
