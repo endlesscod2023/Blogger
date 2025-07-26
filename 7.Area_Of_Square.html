@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Area Of Square</title>
-	<style type="text/css">
-		button{
-			margin: 1px;
-			cursor: pointer;
-		}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Area Of Square</title>
+<style type="text/css">
+#video{
+	width: 100%;
+	max-width: device-width;
+	height: 80vh;
+	max-height: device-height;
+}
+button{
+	margin: 1px;
+	cursor: pointer;
+}
+fieldset{
+	max-width:device-width;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+}
+textarea{
+overflow: scroll;
+width: 100%;
+max-width:device-width;
+}
 </style>
 </head>
 <body>
-	<fieldset style="width: 100px; margin: auto; padding: auto; border-radius: 10px;">
-		<legend>Area Of Square</legend>		
-		<label>Enter Side Length</label>
-		<button onclick="clearvalue('txt1')">x</button>
-		<input type="number" id="txt1" placeholder="Enter Number Only L" oninput="run()">
-		<br>
-		<button onclick="run()">L²</button>
-		<br>
-		<b>Output</b>
-		<button onclick="copyvalue('copy')">Copy</button>
-		<button onclick="clearvalue('copy')">x</button>
-		<br>
-		<input id="copy" type="text" placeholder="L²">
-	</fieldset>
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/7.Area_Of_Square.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
+<legend>Area Of Square</legend>
+<label>Enter Side Length</label>
+<button onclick="clearvalue('txt1')">x</button>
+<input type="number" id="txt1" placeholder="Enter Number Only L" oninput="run()">
+<br>
+<button onclick="run()">L²</button>
+<br>
+<b>Output</b>
+<button onclick="copyvalue('copy')">Copy</button>
+<button onclick="clearvalue('copy')">x</button>
+<br>
+<input id="copy" type="text" placeholder="L²">
+</fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="BBQ2mPFlPnE" src="https://www.youtube.com/embed/BBQ2mPFlPnE"></iframe>
+</div>
+<script type="text/javascript">
+function copyvalue(id) {
+	const copy = document.getElementById(id);
+	copy.focus();
+	copy.select();
+	document.execCommand("Copy");
+}
 
-	<script type="text/javascript">
-		function copyvalue(id){
-			const copy=document.getElementById(id);
-			copy.focus();
-			copy.select();
-			document.execCommand("Copy");
-		}
-		function clearvalue(id){
-			const del=document.getElementById(id);
-			del.select();
-			document.execCommand("Delete");
-		}
-		function run(){
-			var l=document.getElementById('txt1').value;
-			var square=l*4;
-			document.getElementById('copy').value=square;
-			if(l==""){
-				document.getElementById('copy').value="Enter value";
-			}
-		}
-	</script>
+function clearvalue(id) {
+	const del = document.getElementById(id);
+	del.select();
+	document.execCommand("Delete");
+}
+
+function run() {
+	var l = document.getElementById('txt1').value;
+	var square = l * 4;
+	document.getElementById('copy').value = square;
+	if (l == "") {
+		document.getElementById('copy').value = "Enter value";
+	}
+}
+</script>
 </body>
 </html>
