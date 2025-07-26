@@ -1,61 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Area Of Trapezoid</title>
-	<style type="text/css">
-		button{
-			margin: 1px;
-			cursor: pointer;
-		}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Area Of Trapezoid</title>
+<style type="text/css">
+#video{
+	width: 100%;
+	max-width: device-width;
+	height: 80vh;
+	max-height: device-height;
+}
+button{
+	margin: 1px;
+	cursor: pointer;
+}
+fieldset{
+	max-width:device-width;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+}
+textarea{
+	overflow: scroll;
+	width: 100%;
+	max-width:device-width;
+}
 </style>
 </head>
 <body>
-	<fieldset style="margin: auto; padding: auto; border-radius: 10px;">
-		<legend>Area Of Trapezoid</legend>
-		<label>Top Parallel</label>
-		<button onclick="clearvalue('txt1')">x</button>
-		<input type="Number" id="txt1" placeholder="Number Only a" oninput="run()">
-		<br>
-		<label>bottom Parallel</label>
-		<button onclick="clearvalue('txt2')">x</button>
-		<input type="Number" id="txt2" placeholder="Number Only b" oninput="run()">
-		<br>
-		<label>Enter Height</label>
-		<button onclick="clearvalue('txt3')">x</button>
-		<input type="Number" id="txt3" placeholder="Number Only h" oninput="run()">
-		<br>
-		<button onclick="run()" style="margin-top: 1px;">½(t+b)*h</button>
-		<br>
-		<b>Output</b>
-		<button onclick="copyvalue('copy')">Copy</button>
-		<button onclick="clearvalue('copy')">x</button>
-		<br>
-		<input type="text" id="copy" placeholder="½(t+b)*h">
-	</fieldset>
-	<script type="text/javascript">
-		function copyvalue(id){
-			const copy=document.getElementById(id);
-			copy.focus();
-			copy.select();
-			document.execCommand("Copy");
-		}
-		function clearvalue(id){
-			const del=document.getElementById(id);
-			del.select();
-			document.execCommand("Delete");
-		}
-		function run(){
-			var tl=document.getElementById('txt1').value;
-			var bl=document.getElementById('txt2').value;
-			var h=document.getElementById('txt3').value;
-			var Trapezoid=1/2*(+tl+ +bl)*h;
-			document.getElementById('copy').value=Trapezoid;
-			if(tl=="" || bl=="" || h==""){
-				document.getElementById('copy').value="Enter All Values";
-		}
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/13.Area_Of_Trapezoid.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
+<legend>Area Of Trapezoid</legend>
+<label>Top Parallel</label>
+<button onclick="clearvalue('txt1')">x</button>
+<input type="Number" id="txt1" placeholder="Number Only a" oninput="run()">
+<br>
+<label>bottom Parallel</label>
+<button onclick="clearvalue('txt2')">x</button>
+<input type="Number" id="txt2" placeholder="Number Only b" oninput="run()">
+<br>
+<label>Enter Height</label>
+<button onclick="clearvalue('txt3')">x</button>
+<input type="Number" id="txt3" placeholder="Number Only h" oninput="run()">
+<br>
+<button onclick="run()">½(t+b)*h</button>
+<br>
+<b>Output</b>
+<button onclick="copyvalue('copy')">Copy</button>
+<button onclick="clearvalue('copy')">x</button>
+<br>
+<input type="text" id="copy" placeholder="½(t+b)*h">
+</fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="c-ZcRJxe1GM" src="https://www.youtube.com/embed/c-ZcRJxe1GM"></iframe>
+</div>
+<script type="text/javascript">
+function copyvalue(id) {
+	const copy = document.getElementById(id);
+	copy.focus();
+	copy.select();
+	document.execCommand("Copy");
+}
+
+function clearvalue(id) {
+	const del = document.getElementById(id);
+	del.select();
+	document.execCommand("Delete");
+}
+
+function run() {
+	var tl = document.getElementById('txt1').value;
+	var bl = document.getElementById('txt2').value;
+	var h = document.getElementById('txt3').value;
+	var Trapezoid = 1 / 2 * (+tl + +bl) * h;
+	document.getElementById('copy').value = Trapezoid;
+	if (tl == "" || bl == "" || h == "") {
+		document.getElementById('copy').value = "Enter All Values";
 	}
-	</script>
+}
+</script>
 </body>
 </html>
