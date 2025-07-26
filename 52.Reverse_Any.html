@@ -50,25 +50,27 @@ textarea{
 <iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
 </div>
 <script type="text/javascript">
-function run(){
-	const str=document.getElementById('text1').value;
-	document.getElementById('copy').value="";
-	var str1=str.split('').reverse().join('');
-	document.getElementById('copy').value=str1;
-	if(str==""){
-		document.getElementById('copy').value="Enter Value";
-	}
-}
-function copyvalue(id){
-	const copy=document.getElementById(id);
+function copyvalue(id) {
+	const copy = document.getElementById(id);
 	copy.focus();
 	copy.select();
 	document.execCommand("Copy");
 }
-function clearvalue(id){
-	const del=document.getElementById(id);
+
+function clearvalue(id) {
+	const del = document.getElementById(id);
 	del.select();
 	document.execCommand("Delete");
+}
+
+function run() {
+	const str = document.getElementById('text1').value;
+	document.getElementById('copy').value = "";
+	var str1 = str.split('').reverse().join('');
+	document.getElementById('copy').value = str1;
+	if (str == "") {
+		document.getElementById('copy').value = "Enter Value";
+	}
 }
 </script>
 </body>
