@@ -21,6 +21,11 @@ fieldset{
 	padding: auto;
 	border-radius: 10px;
 }
+textarea{
+	overflow: scroll;
+	width: 100%;
+	max-width:device-width;
+}
 </style>
 </head>
 <body>
@@ -53,26 +58,28 @@ fieldset{
 <iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
 </div>
 <script type="text/javascript">
-function run(){
-	var p=document.getElementById('txt1').value;
-	var t=document.getElementById('txt2').value;
-	var r=document.getElementById('txt3').value;
-	var a=(p*t*r) /100;
-	document.getElementById('copy').value=a;
-	if(p=="" || t=="" || r==""){
-		document.getElementById('copy').value="Enter All Values";
-	}
-}
-function copyvalue(id){
-	const copy=document.getElementById(id);
+function copyvalue(id) {
+	const copy = document.getElementById(id);
 	copy.focus();
 	copy.select();
 	document.execCommand("Copy");
 }
-function clearvalue(id){
-	const del=document.getElementById(id);
+
+function clearvalue(id) {
+	const del = document.getElementById(id);
 	del.select();
 	document.execCommand("Delete");
+}
+
+function run() {
+	var p = document.getElementById('txt1').value;
+	var t = document.getElementById('txt2').value;
+	var r = document.getElementById('txt3').value;
+	var a = (p * t * r) / 100;
+	document.getElementById('copy').value = a;
+	if (p == "" || t == "" || r == "") {
+		document.getElementById('copy').value = "Enter All Values";
+	}
 }
 </script>
 </body>
