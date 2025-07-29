@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<style type="text/css">
+#video{
+	width: 100%;
+	max-width: device-width;
+	height: 80vh;
+	max-height: device-height;
+}
+button{
+	margin: 1px;
+	cursor: pointer;
+}
+fieldset{
+	max-width:device-width;
+	margin: auto;
+	padding: auto;
+	border-radius: 10px;
+}
+textarea{
+overflow: scroll;
+width: 100%;
+max-width:device-width;
+}
+
+
+</style>
+</head>
+<body>
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/36.Square_Numbers.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
+<legend></legend>
+<!-- <iframe src="https:                                                                 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0" 
+        width="100%" 
+        height="100vh">
+</iframe> -->
+
+<input type="text" name="">
+
+
+</fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="" src="https://www.youtube.com"></iframe>
+</div>
+<!-- <div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
+</div> -->
+<script type="text/javascript">
+function copyvalue(id) {
+	const copy = document.getElementById(id);
+	copy.focus();
+	copy.select();
+	document.execCommand("Copy");
+}
+function clearvalue(id) {
+	const del = document.getElementById(id);
+	del.select();
+	document.execCommand("Delete");
+}
+
+function copy(that) {
+	var inp = document.createElement('input');
+	document.body.appendChild(inp)
+	inp.value = that.textContent;
+	inp.select();
+	document.execCommand('copy', false);
+	inp.remove();
+}
+
+function makeFullScreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+    }
+}
+// usage
+const element = document.querySelector('.full-screen');
+makeFullScreen(element);
+
+//2
+// Open fullscreen for the entire page
+function openFullscreen() {
+  const elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { // Safari
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { // IE11
+    elem.msRequestFullscreen();
+  }
+}
+
+// Exit fullscreen
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { // Safari
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { // IE11
+    document.msExitFullscreen();
+  }
+}
+
+
+document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement) {
+    console.log("Entered fullscreen");
+  } else {
+    console.log("Exited fullscreen");
+  }
+});
+
+
+
+//
+
+</script>
+<!-- //full screen -->
+<button onclick="goFullscreen()">Enter Fullscreen</button>
+
+<script>
+function goFullscreen() {
+  const elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { // Safari
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { // IE11
+    elem.msRequestFullscreen();
+  }
+}
+</script>
+<!-- //not work -->
+<script type="text/javascript">
+	window.onload = function() {
+  const elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  }
+};
+</script>
+<!-- //desiaple shortcut -->
+<script type="text/javascript">
+	document.addEventListener("keydown", function(e) {
+  // Disable Ctrl+S
+  if (e.ctrlKey && e.key.toLowerCase() === "s") {
+    e.preventDefault();
+    alert("Ctrl+S is disabled");
+  }
+
+  // Disable Ctrl+C
+  if (e.ctrlKey && e.key.toLowerCase() === "c") {
+    e.preventDefault();
+    alert("Ctrl+C is disabled");
+  }
+
+  // Disable Ctrl+V
+  if (e.ctrlKey && e.key.toLowerCase() === "v") {
+    e.preventDefault();
+    alert("Ctrl+V is disabled");
+  }
+
+  // Disable F12 (DevTools)
+  if (e.key === "F12") {
+    e.preventDefault();
+    alert("F12 is disabled");
+  }
+  // Disable F11 (DevTools)
+  if (e.key === "F11") {
+    e.preventDefault();
+    alert("F11 is disabled");
+  }
+  //
+  // Disable Windos (DevTools)
+  if (e.key === "Meta") {
+    e.preventDefault();
+    alert("windos is disabled");
+  }
+});
+</script>
+//
+<script type="text/javascript">
+	document.addEventListener("keydown", function(e) {
+  e.preventDefault();
+});
+``>
+> This will block **all** key presses, including typing in input fields—use with caution!
+
+### 🧠 Tips
+- Use `e.key` for readable key names (like `"s"`, `"F12"`).
+- Use `e.ctrlKey`, `e.altKey`, `e.shiftKey` to detect modifier keys.
+- You can also target specific elements instead of the whole document.
+
+Want help customizing this for your app or blocking other shortcuts like Ctrl+V or Ctrl+P?
+</script>
+<!-- <script type="text/javascript">
+	document.addEventListener("keydown", function(e) {
+  if (e.key === "Meta") {
+  	alert("Windows key pressed")
+    console.log("Windows key pressed");
+    // e.preventDefault(); // This won't stop the Start menu
+  }
+});
+</script> -->
+</body>
+</html>
