@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age Calculator</title>
+<style type="text/css">
+#video{
+  width: 100%;
+  max-width: device-width;
+  height: 80vh;
+  max-height: device-height;
+}
+button{
+  margin: 1px;
+  cursor: pointer;
+}
+fieldset{
+  max-width:device-width;
+  margin: auto;
+  padding: auto;
+  border-radius: 10px;
+}
+textarea{
+overflow: scroll;
+width: 100%;
+max-width:device-width;
+}
+</style>
+<style type="text/css">
+#result {
+  font-size: 24px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<button style="border-radius: 10px; box-shadow: 0 0 5px cyan, 0 0 25px cyan;">
+<a href="https://github.com/endlesscod2023/Blogger/blob/main/36.Square_Numbers.html">Source Code</a>
+</button>
+<br><br>
+<fieldset>
+<legend>Age Calculator</legend>
+<center><h1>Age Calculator</h1>
+<h2 for="birthday">Enter you date of birth</h2>
+<input type="date" id="birthday" name="birthday" oninput="calculateAge()" style="border-color: red;">
+<p id="result">Your age is _</p></center>
+</fieldset>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<iframe id="video" class="BLOG_video_class" allowfullscreen="" youtube-src-id="s_O2H4okSUw" src="https://www.youtube.com/embed/s_O2H4okSUw"></iframe>
+</div>
+<script type="text/javascript">
+const birthdayEl = document.getElementById("birthday");
+const resultEl = document.getElementById("result");
+
+function calculateAge() {
+  const birthdayValue = birthdayEl.value;
+  if (birthdayValue === "") {
+    alert("Please enter your birthday");
+  } else {
+    const age = getAge(birthdayValue);
+    resultEl.innerText = `Your age is ${age}`;
+  }
+}
+
+function getAge(birthdayValue) {
+  const currentDate = new Date();
+  const birthdayDate = new Date(birthdayValue);
+  let age = currentDate.getFullYear() - birthdayDate.getFullYear();
+  const month = currentDate.getMonth() - birthdayDate.getMonth();
+
+  if (
+    month < 0 ||
+    (month === 0 && currentDate.getDate() < birthdayDate.getDate())
+  ) {
+    age--;
+  }
+  return age;
+}
+</script>
+</body>
+</html>
